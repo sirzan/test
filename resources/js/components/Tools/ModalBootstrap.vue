@@ -22,10 +22,10 @@
           <slot name="body">Modal body content goes here.</slot>
 
           <div class="form-actions row">
-            <div class="col-md-6">
+            <div class="col-md-4">
               <slot name="btn"></slot>
             </div>
-            <div class="col-md-6 text-end">
+            <div class="col-md-8 text-end">
               <button
                 type="button"
                 v-if="ShowCancel"

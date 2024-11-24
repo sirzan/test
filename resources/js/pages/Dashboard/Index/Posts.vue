@@ -24,7 +24,7 @@
               role="group"
               aria-label="Basic mixed styles example"
             >
-              <button class="btn btn-secondary">Editar</button>
+              <EditPost :info="item" :callback="updateList"></EditPost>
               <button
                 type="button"
                 class="btn btn-danger"
@@ -42,6 +42,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import AddPost from "../../../components/Posts/AddPost.vue";
+import EditPost from "../../../components/Posts/EditPost.vue";
 import Swal from "sweetalert2";
 
 const list = ref([]);
@@ -90,6 +91,16 @@ const deletePost = (id) => {
           text: "Surgio un error al eliminar el post!",
         });
       }
+    }
+  });
+};
+
+const updateList = (datos) => {
+  list.value = list.value.map((item) => {
+    if (item.id == datos.id) {
+      return { ...item, title: datos.title, content: datos.content };
+    } else {
+      return item;
     }
   });
 };
