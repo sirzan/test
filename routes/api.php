@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,5 +64,6 @@ Route::middleware('auth:api')->group(function () {
     Route::delete('/projects/{id}', [ProjectController::class, 'destroy']);
     /** RUTAS PARA PROJECT END */
     
+    Route::get('/users', [UserController::class, 'users']);
 
 });

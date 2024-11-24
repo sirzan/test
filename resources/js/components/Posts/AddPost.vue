@@ -44,8 +44,8 @@ const handleSubmit = async () => {
     const { data } = await axios.post("/api/posts", { ...datos });
     if (data) {
       Swal.fire({
-        title: "Guardar",
-        text: "Se guardaron los cambios con éxito",
+        title: "Post Creado",
+        text: "Se creo el post con éxito",
         icon: "success",
         allowOutsideClick: false,
         allowEscapeKey: false,
