@@ -13,7 +13,9 @@ class PostController extends Controller
     public function index()
     {
         // Incluye al usuario que creó el post
-        $posts = Post::with(['user', 'comments.user'])->latest()->get();
+        $posts = Post::with(['user', 'comments'=>function($query){
+            return $query->with('user')->orderBy('id','desc');
+        }])->latest()->get();
 
         return response()->json($posts);
     }

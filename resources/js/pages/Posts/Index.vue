@@ -9,12 +9,15 @@
           </p>
         </div>
         <div class="card-footer">
-          <h4>
-            Comentarios
-            <span class="badge text-bg-secondary">{{
-              item?.comments.length
-            }}</span>
-          </h4>
+          <div class="d-flex justify-content-between mb-3">
+            <h5>
+              Comentarios
+              <span class="badge text-bg-secondary">{{
+                item?.comments.length
+              }}</span>
+            </h5>
+            <AddComment :info="item" :callback="addNewComment"></AddComment>
+          </div>
           <div
             class="card mb-3"
             v-for="comment in item?.comments"
@@ -35,7 +38,7 @@
 </template>
 <script setup>
 import Sidebar from "../../components/layouts/Sidebar.vue";
-
+import AddComment from "../../components/Posts/comments/AddComment.vue";
 import { onMounted, ref } from "vue";
 
 const listPosts = ref([]);
@@ -47,6 +50,19 @@ const getPost = async () => {
   } catch (error) {
     console.log(error);
   }
+};
+
+const addNewComment = (datos) => {
+  listPosts.value = listPosts.value.map((item) => {
+    if (item.id === datos.post_id) {
+      return {
+        ...item,
+        comments: { datos, ...item.comments },
+      };
+    } else {
+      return item;
+    }
+  });
 };
 
 onMounted(() => {

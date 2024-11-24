@@ -30,7 +30,7 @@ class CommentController extends Controller
             'user_id' => auth()->id(),
             'content' => $validated['content'],
         ]);
-
+        $comment->user;
         return response()->json($comment, 201);
     }
 
