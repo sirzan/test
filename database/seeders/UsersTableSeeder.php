@@ -18,13 +18,13 @@ class UsersTableSeeder extends Seeder
         // Crear el usuario administrador
         User::create([
             'name' => 'Admin',
-            'email' => 'admin@admin',
+            'email' => 'admin@admin.com',
             'password' => Hash::make('12345678'),
         ]);
 
         // Crear 10 usuarios aleatorios
         \App\Models\User::factory(10)->create()->each(function ($user) {
-            $user->password = Hash::make('123456789');
+            $user->password = Hash::make('12345678');
             $user->save();
         });
     }
