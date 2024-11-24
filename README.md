@@ -6,10 +6,10 @@ Sigue los pasos a continuación para instalar y configurar el proyecto en tu ent
 
 Asegúrate de tener instalados los siguientes programas en tu máquina:
 
-- **PHP** (versión 7.3 o superior)
+- **PHP** (versión 8.1 o superior)
 - **Composer**
 - **Node.js** (con npm)
-- **MySQL** o **MariaDB** (si usas base de datos)
+- **MySQL** o **MariaDB** 
 
 ## Pasos para la Instalación
 
@@ -27,7 +27,7 @@ Asegúrate de tener instalados los siguientes programas en tu máquina:
 4. **Genera la clave de la aplicación**: Genera la clave de la aplicación para la seguridad de tu proyecto:  
    `php artisan key:generate`
 
-5. **Genera las claves de Passport (si usas autenticación Passport)**: Si el proyecto utiliza **Laravel Passport** para la autenticación de usuarios, ejecuta el siguiente comando:  
+5. **Genera las claves de Passport (autenticación Passport)**: Si el proyecto utiliza **Laravel Passport** para la autenticación de usuarios, ejecuta el siguiente comando:  
    `php artisan passport:keys`
 
 6. **Instala las dependencias de Node.js**: Instala las dependencias de frontend con npm:  
@@ -43,5 +43,3 @@ Asegúrate de tener instalados los siguientes programas en tu máquina:
 ## ¡Listo!
 
 Ahora puedes acceder a tu aplicación Laravel en tu navegador y comenzar a trabajar en ella.
-
-Si tienes algún problema durante la instalación, revisa los mensajes de error para obtener más detalles o contacta con el equipo de desarrollo.
