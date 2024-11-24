@@ -8,8 +8,13 @@
 </template>
   
   <script setup>
-  import Sidebar from "../components/layouts/Sidebar.vue";
-
+  import { onMounted } from "vue";
+import Sidebar from "../components/layouts/Sidebar.vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
+onMounted(() => {
+  router.push("/posts");
+});
 </script>
   
   <style>

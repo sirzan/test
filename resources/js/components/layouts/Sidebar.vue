@@ -10,12 +10,12 @@
     >
       <div class="sidebar-heading my-3 px-2">Mi Proyecto</div>
       <div class="list-group list-group-flush">
-        <router-link
+        <!-- <router-link
           to="/"
           class="list-group-item list-group-item-action bg-dark text-white"
         >
           Inicio
-        </router-link>
+        </router-link> -->
         <router-link
           to="/posts"
           class="list-group-item list-group-item-action bg-dark text-white"
