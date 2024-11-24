@@ -44,6 +44,7 @@ Route::get('/projects/{id}', [ProjectController::class, 'show']);
 Route::middleware('auth:api')->group(function () {
 
     /** RUTAS PARA POST */
+    Route::get('/posts-user', [PostController::class, 'indexUser']);
     Route::post('/posts', [PostController::class, 'store']);
     Route::put('/posts/{id}', [PostController::class, 'update']);
     Route::delete('/posts/{id}', [PostController::class, 'destroy']);
