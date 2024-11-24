@@ -30,13 +30,18 @@ Asegúrate de tener instalados los siguientes programas en tu máquina:
 5. **Genera las claves de Passport (autenticación Passport)**: Si el proyecto utiliza **Laravel Passport** para la autenticación de usuarios, ejecuta el siguiente comando:  
    `php artisan passport:keys`
 
-6. **Instala las dependencias de Node.js**: Instala las dependencias de frontend con npm:  
+6. **para poblar las tablas con datos iniciales**: para insertar un usuario admin y un factory de usuario con la misma contraseña:
+   `php artisan db:seed`
+   `usuario: admin@admin`
+   `clave: 12345678`
+
+7. **Instala las dependencias de Node.js**: Instala las dependencias de frontend con npm:  
    `npm install`
 
-7. **Compila los archivos de frontend**: Ejecuta el siguiente comando para compilar los archivos de frontend:  
+8. **Compila los archivos de frontend**: Ejecuta el siguiente comando para compilar los archivos de frontend:  
    `npm run dev`
 
-8. **Inicia el servidor de desarrollo**: Finalmente, inicia el servidor de desarrollo de Laravel con:  
+9. **Inicia el servidor de desarrollo**: Finalmente, inicia el servidor de desarrollo de Laravel con:  
    `php artisan serve`  
    Esto arrancará el servidor en `http://localhost:8000`.
 
