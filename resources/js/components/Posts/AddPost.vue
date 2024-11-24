@@ -61,7 +61,7 @@ const handleSubmit = async () => {
     Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "Something went wrong!",
+      text: "Surgio un error al crear el post!",
     });
   }
 };

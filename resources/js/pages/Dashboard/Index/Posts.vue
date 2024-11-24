@@ -25,7 +25,13 @@
               aria-label="Basic mixed styles example"
             >
               <button class="btn btn-secondary">Editar</button>
-              <button class="btn btn-danger">Eliminar</button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                @click="deletePost(item.id)"
+              >
+                Eliminar
+              </button>
             </div>
           </td>
         </tr>
@@ -36,6 +42,8 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import AddPost from "../../../components/Posts/AddPost.vue";
+import Swal from "sweetalert2";
+
 const list = ref([]);
 
 const getPosts = async () => {
@@ -49,6 +57,41 @@ const getPosts = async () => {
 
 const setPost = (item) => {
   list.value = { item, ...list.value };
+};
+
+const deletePost = (id) => {
+  Swal.fire({
+    title: "¿Deseas eliminar este post?",
+    text: "Si no estas seguro, puedes cancelar esta acción",
+    icon: "warning",
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Si, eliminar",
+    cancelButtonText: "Cancelar",
+  }).then(async (result) => {
+    if (result.isConfirmed) {
+      try {
+        const { data } = await axios.delete("/api/posts/" + id);
+        if (data) {
+          Swal.fire({
+            title: "Eliminado!",
+            text: "El post fue eliminado.",
+            icon: "success",
+          });
+          list.value = list.value.filter((item) => item.id != id);
+        }
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Surgio un error al eliminar el post!",
+        });
+      }
+    }
+  });
 };
 
 onMounted(() => {
