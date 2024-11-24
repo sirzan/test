@@ -52,6 +52,7 @@ Route::middleware('auth:api')->group(function () {
     /** RUTAS PARA POST END */
 
     /** RUTAS PARA COMMENTS */
+    
     Route::post('/posts/{postId}/comments', [CommentController::class, 'store']);
     Route::put('/posts/{postId}/comments/{id}', [CommentController::class, 'update']);
     Route::delete('/posts/{postId}/comments/{id}', [CommentController::class, 'destroy']);
@@ -59,6 +60,7 @@ Route::middleware('auth:api')->group(function () {
     
     
     /** RUTAS PARA PROJECT */
+    Route::get('/projects-user', [ProjectController::class, 'indexUser']);
     Route::post('/projects', [ProjectController::class, 'store']);
     Route::put('/projects/{id}', [ProjectController::class, 'update']);
     Route::delete('/projects/{id}', [ProjectController::class, 'destroy']);

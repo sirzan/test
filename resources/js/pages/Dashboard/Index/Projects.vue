@@ -33,7 +33,7 @@
               role="group"
               aria-label="Basic mixed styles example"
             >
-              <EditPost :info="item" :callback="updateList"></EditPost>
+              <EditProject :info="item" :callback="updateList"></EditProject>
               <button
                 type="button"
                 class="btn btn-danger"
@@ -51,7 +51,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import AddProject from "../../../components/Projects/AddProject.vue";
-import EditPost from "../../../components/Posts/EditPost.vue";
+import EditProject from "../../../components/Projects/EditProject.vue";
 import Swal from "sweetalert2";
 
 const list = ref([]);
@@ -107,7 +107,12 @@ const deleteProject = (id) => {
 const updateList = (datos) => {
   list.value = list.value.map((item) => {
     if (item.id == datos.id) {
-      return { ...item, name: datos.name, description: datos.description };
+      return {
+        ...item,
+        name: datos.name,
+        description: datos.description,
+        users: datos.users,
+      };
     } else {
       return item;
     }

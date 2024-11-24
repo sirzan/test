@@ -12,9 +12,10 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::with('users')->latest()->get();
+        $projects = Project::with(['users'])->latest()->get();
         return response()->json($projects);
     }
+
 
     /**
      * Crea un nuevo proyecto y asocia usuarios al mismo.
