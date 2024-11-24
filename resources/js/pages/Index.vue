@@ -1,15 +1,18 @@
 <template>
+  <Sidebar>
     <div>
-      
       <h1>Welcome to the Administration Panel</h1>
       <p>This is the home page of your admin panel.</p>
     </div>
-  </template>
+  </Sidebar>
+</template>
   
   <script setup>
-  </script>
+  import Sidebar from "../components/layouts/Sidebar.vue";
+
+</script>
   
   <style>
-  /* Estilos opcionales */
-  </style>
+/* Estilos opcionales */
+</style>
   

@@ -2,7 +2,10 @@
   <div class="" id="wrapper">
     <!-- Sidebar -->
     <div
-      :class="['bg-dark text-white', { 'd-none': !isSidebarVisible, 'd-md-block': true }]"
+      :class="[
+        'bg-dark text-white',
+        { 'd-none': !isSidebarVisible, 'd-md-block': true },
+      ]"
       id="sidebar"
     >
       <div class="sidebar-heading my-3 px-2">Mi Proyecto</div>
@@ -25,6 +28,14 @@
         >
           Proyectos
         </router-link>
+        <a
+          v-if="authStore.token"
+          href=""
+          @click.prevent="logout"
+          class="list-group-item list-group-item-action bg-dark text-white"
+        >
+          Cerrar Sesión
+        </a>
       </div>
     </div>
 
@@ -42,6 +53,17 @@
 <script setup>
 import { ref } from "vue";
 import Navbar from "./Navbar.vue";
+import { useRouter } from "vue-router";
+
+import { useAuthStore } from "../../stores/auth";
+
+const authStore = useAuthStore();
+const router = useRouter();
+// Función para cerrar sesión
+const logout = () => {
+  authStore.logout();
+  router.push("/");
+};
 
 // Estado para el sidebar
 const isSidebarVisible = ref(false);
